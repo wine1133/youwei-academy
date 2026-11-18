@@ -20,7 +20,7 @@
           <div class="eyebrow">FEATURED STORY</div>
           <h2>{{ featured.title }}</h2>
           <p>{{ featured.summary }}</p>
-          <div class="author-line"><img :src="featured.authorAvatar || '/images/avatars/teacher.svg'" alt=""><span>{{ featured.authorName }}</span><i></i><span>{{ featured.views }} 阅读</span><i></i><span>{{ featured.likes }} 喜欢</span></div>
+          <div class="author-line"><img :src="featured.authorAvatar || '/images/avatars/teacher.jpg'" alt=""><span>{{ featured.authorName }}</span><i></i><span>{{ featured.views }} 阅读</span><i></i><span>{{ featured.likes }} 喜欢</span></div>
           <span class="read-more">继续阅读 <el-icon><ArrowRight /></el-icon></span>
         </div>
       </article>

@@ -178,20 +178,20 @@ CREATE TABLE IF NOT EXISTS `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='消息通知';
 
 INSERT INTO `admin` (`id`,`username`,`password`,`name`,`avatar`,`role`) VALUES
-(1,'admin','admin','管理员','/images/avatars/admin.svg','ADMIN')
+(1,'admin','admin','管理员','/images/avatars/admin.jpg','ADMIN')
 ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`avatar`=VALUES(`avatar`),`role`='ADMIN';
 INSERT INTO `teacher` (`id`,`username`,`password`,`name`,`avatar`,`role`) VALUES
-(3,'teacher','123456','林知远','/images/avatars/teacher.svg','TEACHER')
+(3,'teacher','123456','林知远','/images/avatars/teacher.jpg','TEACHER')
 ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`avatar`=VALUES(`avatar`),`role`='TEACHER';
 INSERT INTO `user` (`id`,`username`,`password`,`name`,`avatar`,`role`) VALUES
-(2,'ill','123456','沈星河','/images/avatars/student.svg','USER'),
-(4,'user','123456','苏念','/images/avatars/student2.svg','USER')
+(2,'ill','123456','沈星河','/images/avatars/student.jpg','USER'),
+(4,'user','123456','苏念','/images/avatars/student2.jpg','USER')
 ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`avatar`=VALUES(`avatar`),`role`='USER';
 INSERT INTO `space` (`id`,`name`,`address`,`longitude`,`latitude`,`description`,`open_time`,`cover`,`status`) VALUES
-(1,'有为书院·中心馆','大连市甘井子区凌工路周边',121.53500000,38.88300000,'面向书院成员开放的阅读、自习与交流空间。','09:00 - 21:00','/images/covers/book-01.svg','OPEN'),
-(2,'凌水湾城市书房','大连市甘井子区凌水湾',121.54800000,38.86900000,'临海阅读空间，适合周末安静阅读与小型分享会。','10:00 - 20:00','/images/covers/book-02.svg','OPEN'),
-(3,'星海阅读空间','大连市沙河口区星海广场周边',121.58900000,38.87400000,'城市文化会客厅，提供图书借阅和主题展览。','10:00 - 22:00','/images/covers/book-03.svg','OPEN'),
-(4,'大连理工大学图书馆','大连市甘井子区凌工路2号',121.52900000,38.88400000,'高校知识空间，支持学习、检索与学术交流。','08:00 - 22:00','/images/covers/book-04.svg','OPEN')
+(1,'有为书院·中心馆','大连市甘井子区凌工路周边',121.53500000,38.88300000,'面向书院成员开放的阅读、自习与交流空间。','09:00 - 21:00','/images/real/spaces/space-01.jpg','OPEN'),
+(2,'凌水湾城市书房','大连市甘井子区凌水湾',121.54800000,38.86900000,'临海阅读空间，适合周末安静阅读与小型分享会。','10:00 - 20:00','/images/real/spaces/space-02.jpg','OPEN'),
+(3,'星海阅读空间','大连市沙河口区星海广场周边',121.58900000,38.87400000,'城市文化会客厅，提供图书借阅和主题展览。','10:00 - 22:00','/images/real/spaces/space-03.jpg','OPEN'),
+(4,'大连理工大学图书馆','大连市甘井子区凌工路2号',121.52900000,38.88400000,'高校知识空间，支持学习、检索与学术交流。','08:00 - 22:00','/images/real/spaces/space-04.jpg','OPEN')
 ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`address`=VALUES(`address`),`longitude`=VALUES(`longitude`),`latitude`=VALUES(`latitude`),`open_time`=VALUES(`open_time`),`status`=VALUES(`status`);
 
 INSERT INTO `message` (`id`,`user_id`,`role`,`title`,`content`,`type`,`related_id`,`is_read`) VALUES
@@ -202,14 +202,14 @@ INSERT INTO `message` (`id`,`user_id`,`role`,`title`,`content`,`type`,`related_i
 ON DUPLICATE KEY UPDATE `title`=VALUES(`title`),`content`=VALUES(`content`),`type`=VALUES(`type`),`role`=VALUES(`role`);
 
 INSERT INTO `book` (`id`,`name`,`author`,`cover`,`category`,`publisher`,`isbn`,`description`,`total`,`stock`,`score`) VALUES
-(1,'百年孤独','加西亚·马尔克斯','/images/covers/book-01.svg','文学','南海出版公司','9787544253994','一部关于家族、记忆与时间循环的魔幻现实主义经典。',18,14,9.3),
-(2,'人类简史','尤瓦尔·赫拉利','/images/covers/book-02.svg','历史','中信出版社','9787508647357','从认知革命到科技革命，重新理解人类如何成为世界的主人。',12,9,9.1),
-(3,'深入理解计算机系统','Randal E. Bryant','/images/covers/book-03.svg','计算机','机械工业出版社','9787111544937','从程序员视角理解计算机系统，是计算机专业必读经典。',10,7,9.8),
-(4,'月亮与六便士','毛姆','/images/covers/book-04.svg','文学','中国友谊出版公司','9787505738720','在满地都是六便士的街上，他抬头看见了月亮。',15,12,9.0),
-(5,'设计中的设计','原研哉','/images/covers/book-05.svg','设计','山东人民出版社','9787209041065','从日常生活出发，重新思考设计的本质与边界。',8,6,8.8),
-(6,'活着','余华','/images/covers/book-06.svg','文学','作家出版社','9787506365437','以朴素而有力的叙述，写尽生命的苦难与韧性。',20,16,9.4),
-(7,'代码整洁之道','Robert C. Martin','/images/covers/book-07.svg','计算机','人民邮电出版社','9787115216878','如何写出可读、可维护、值得长期演进的高质量代码。',9,5,9.1),
-(8,'艺术的故事','贡布里希','/images/covers/book-08.svg','艺术','广西美术出版社','9787549401929','一部雅俗共赏的西方艺术史入门经典。',7,5,9.6)
+(1,'百年孤独','加西亚·马尔克斯','/images/real/books/book-01.jpg','文学','南海出版公司','9787544253994','一部关于家族、记忆与时间循环的魔幻现实主义经典。',18,14,9.3),
+(2,'人类简史','尤瓦尔·赫拉利','/images/real/books/book-02.jpg','历史','中信出版社','9787508647357','从认知革命到科技革命，重新理解人类如何成为世界的主人。',12,9,9.1),
+(3,'深入理解计算机系统','Randal E. Bryant','/images/real/books/book-03.png','计算机','机械工业出版社','9787111544937','从程序员视角理解计算机系统，是计算机专业必读经典。',10,7,9.8),
+(4,'月亮与六便士','毛姆','/images/real/books/book-04.jpg','文学','中国友谊出版公司','9787505738720','在满地都是六便士的街上，他抬头看见了月亮。',15,12,9.0),
+(5,'设计中的设计','原研哉','/images/real/books/book-05.jpg','设计','山东人民出版社','9787209041065','从日常生活出发，重新思考设计的本质与边界。',8,6,8.8),
+(6,'活着','余华','/images/real/books/book-06.jpg','文学','作家出版社','9787506365437','以朴素而有力的叙述，写尽生命的苦难与韧性。',20,16,9.4),
+(7,'代码整洁之道','Robert C. Martin','/images/real/books/book-07.jpg','计算机','人民邮电出版社','9787115216878','如何写出可读、可维护、值得长期演进的高质量代码。',9,5,9.1),
+(8,'艺术的故事','贡布里希','/images/real/books/book-08.jpg','艺术','广西美术出版社','9787549401929','一部雅俗共赏的西方艺术史入门经典。',7,5,9.6)
 ON DUPLICATE KEY UPDATE `name`=VALUES(`name`),`author`=VALUES(`author`),`cover`=VALUES(`cover`),`description`=VALUES(`description`),`total`=VALUES(`total`),`stock`=VALUES(`stock`),`score`=VALUES(`score`);
 
 INSERT INTO `chapter` (`id`,`book_id`,`title`,`sort_no`,`content`) VALUES
@@ -222,10 +222,10 @@ INSERT INTO `chapter` (`id`,`book_id`,`title`,`sort_no`,`content`) VALUES
 ON DUPLICATE KEY UPDATE `title`=VALUES(`title`),`content`=VALUES(`content`);
 
 INSERT INTO `article` (`id`,`title`,`summary`,`cover`,`content`,`category`,`tags`,`user_id`,`views`,`likes`,`collects`) VALUES
-(1,'在数字时代，重新发现深度阅读的力量','当信息越来越快，我们更需要一种慢下来、与思想真正相遇的能力。','/images/covers/article-01.svg','<p>数字技术让获取信息变得前所未有的容易，但阅读并没有因此变得更轻松。真正困难的，是在海量信息中保持专注，在快速滑动之间停下来思考。</p><p>深度阅读不是把一本书从头到尾翻完，而是与作者建立持续的对话。做笔记、提出问题、回看自己的经验，都是让阅读进入生命的方式。</p><blockquote>阅读的意义，不是知道更多，而是成为更完整的人。</blockquote><p>每天留出二十分钟，关掉通知，读几页真正值得读的书。长期来看，这会成为你最重要的精神资产。</p>','阅读方法','深度阅读,学习方法',3,1286,96,58),
-(2,'从零开始搭建你的知识管理系统','不是收藏更多，而是让知识真正参与你的思考与创造。','/images/covers/article-02.svg','<p>知识管理的核心不是工具，而是输入、连接和输出。收藏只是输入，整理只是连接，只有真正写出来、用起来，知识才属于你。</p><p>可以从一个最小系统开始：每天记录一个问题，每周整理一次笔记，每月输出一篇总结。让知识流动起来，而不是沉睡在文件夹里。</p>','效率工具','知识管理,笔记',1,864,72,41),
-(3,'2026 春季书单：给忙碌生活留一盏灯','八本书，八种理解世界的方式。','/images/covers/article-03.svg','<p>春天适合重新开始，也适合安静地读一本书。这份书单没有严格的排名，只希望其中某一本，能在恰好的时刻与你相遇。</p><p>从《百年孤独》的时间迷宫，到《设计中的设计》的日常观察；从《人类简史》的宏大叙事，到《活着》的生命韧性，每一本书都是一扇窗。</p>','主题书单','书单,阅读',4,2031,154,103),
-(4,'教师手记：如何让阅读真正进入课堂','阅读不应只是任务，而应成为学生理解世界的方式。','/images/covers/article-04.svg','<p>在课堂上，我们常常急于让学生总结主题、提炼意义，却忽略了阅读首先是一种体验。让学生先说出困惑、惊讶和不同意，往往比标准答案更重要。</p><p>把阅读与写作、讨论、项目式学习连接起来，学生才会发现知识不是孤立的，而是可以解释现实、改变生活的。</p>','教学随笔','阅读教学,课堂',3,642,53,29)
+(1,'在数字时代，重新发现深度阅读的力量','当信息越来越快，我们更需要一种慢下来、与思想真正相遇的能力。','/images/real/articles/article-01.jpg','<p>数字技术让获取信息变得前所未有的容易，但阅读并没有因此变得更轻松。真正困难的，是在海量信息中保持专注，在快速滑动之间停下来思考。</p><p>深度阅读不是把一本书从头到尾翻完，而是与作者建立持续的对话。做笔记、提出问题、回看自己的经验，都是让阅读进入生命的方式。</p><blockquote>阅读的意义，不是知道更多，而是成为更完整的人。</blockquote><p>每天留出二十分钟，关掉通知，读几页真正值得读的书。长期来看，这会成为你最重要的精神资产。</p>','阅读方法','深度阅读,学习方法',3,1286,96,58),
+(2,'从零开始搭建你的知识管理系统','不是收藏更多，而是让知识真正参与你的思考与创造。','/images/real/articles/article-02.jpg','<p>知识管理的核心不是工具，而是输入、连接和输出。收藏只是输入，整理只是连接，只有真正写出来、用起来，知识才属于你。</p><p>可以从一个最小系统开始：每天记录一个问题，每周整理一次笔记，每月输出一篇总结。让知识流动起来，而不是沉睡在文件夹里。</p>','效率工具','知识管理,笔记',1,864,72,41),
+(3,'2026 春季书单：给忙碌生活留一盏灯','八本书，八种理解世界的方式。','/images/real/articles/article-03.jpg','<p>春天适合重新开始，也适合安静地读一本书。这份书单没有严格的排名，只希望其中某一本，能在恰好的时刻与你相遇。</p><p>从《百年孤独》的时间迷宫，到《设计中的设计》的日常观察；从《人类简史》的宏大叙事，到《活着》的生命韧性，每一本书都是一扇窗。</p>','主题书单','书单,阅读',4,2031,154,103),
+(4,'教师手记：如何让阅读真正进入课堂','阅读不应只是任务，而应成为学生理解世界的方式。','/images/real/articles/article-04.jpg','<p>在课堂上，我们常常急于让学生总结主题、提炼意义，却忽略了阅读首先是一种体验。让学生先说出困惑、惊讶和不同意，往往比标准答案更重要。</p><p>把阅读与写作、讨论、项目式学习连接起来，学生才会发现知识不是孤立的，而是可以解释现实、改变生活的。</p>','教学随笔','阅读教学,课堂',3,642,53,29)
 ON DUPLICATE KEY UPDATE `title`=VALUES(`title`),`summary`=VALUES(`summary`),`content`=VALUES(`content`);
 
 INSERT INTO `homework` (`id`,`title`,`content`,`teacher_id`,`deadline`) VALUES

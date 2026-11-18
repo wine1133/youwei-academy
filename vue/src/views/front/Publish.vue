@@ -38,7 +38,7 @@ import { ElMessage } from 'element-plus'
 const router = useRouter()
 const user = JSON.parse(localStorage.getItem('system-user') || '{}')
 const categories = ['阅读方法','效率工具','主题书单','教学随笔','技术思考']
-const covers = ['/images/covers/article-01.svg','/images/covers/article-02.svg','/images/covers/article-03.svg','/images/covers/article-04.svg']
+const covers = ['/images/real/articles/article-01.jpg','/images/real/articles/article-02.jpg','/images/real/articles/article-03.jpg','/images/real/articles/article-04.jpg']
 const form = reactive({ title:'', category:'阅读方法', tags:'', summary:'', content:'', cover:covers[0], userId:user.id })
 const submit = () => {
   if (!user.id) { ElMessage.warning('请先登录'); router.push('/login'); return }

@@ -17,10 +17,10 @@
         <el-menu-item index="/manager/person"><el-icon><User /></el-icon><span>个人资料</span></el-menu-item>
         <el-menu-item index="/manager/password"><el-icon><Lock /></el-icon><span>修改密码</span></el-menu-item>
       </el-menu>
-      <div class="side-bottom"><div class="side-user"><img :src="user.avatar || '/images/avatars/admin.svg'" alt=""><div><b>{{ user.name }}</b><span>{{ roleText }}</span></div></div><button @click="logout"><el-icon><SwitchButton /></el-icon></button></div>
+      <div class="side-bottom"><div class="side-user"><img :src="user.avatar || '/images/avatars/admin.jpg'" alt=""><div><b>{{ user.name }}</b><span>{{ roleText }}</span></div></div><button @click="logout"><el-icon><SwitchButton /></el-icon></button></div>
     </aside>
     <section class="manager-main">
-      <header class="manager-top"><div><span class="crumb">有为书院</span><b>/</b><span>{{ currentTitle }}</span></div><div class="top-right"><button class="top-message" @click="router.push('/manager/message')"><el-icon><Bell /></el-icon><span v-if="messageCount">{{messageCount}}</span></button><span>{{ today }}</span><el-dropdown><button class="top-user"><img :src="user.avatar || '/images/avatars/admin.svg'" alt=""><span>{{ user.name }}</span><el-icon><ArrowDown /></el-icon></button><template #dropdown><el-dropdown-menu><el-dropdown-item @click="router.push('/manager/person')">个人资料</el-dropdown-item><el-dropdown-item @click="router.push('/manager/password')">修改密码</el-dropdown-item><el-dropdown-item divided @click="logout">退出登录</el-dropdown-item></el-dropdown-menu></template></el-dropdown></div></header>
+      <header class="manager-top"><div><span class="crumb">有为书院</span><b>/</b><span>{{ currentTitle }}</span></div><div class="top-right"><button class="top-message" @click="router.push('/manager/message')"><el-icon><Bell /></el-icon><span v-if="messageCount">{{messageCount}}</span></button><span>{{ today }}</span><el-dropdown><button class="top-user"><img :src="user.avatar || '/images/avatars/admin.jpg'" alt=""><span>{{ user.name }}</span><el-icon><ArrowDown /></el-icon></button><template #dropdown><el-dropdown-menu><el-dropdown-item @click="router.push('/manager/person')">个人资料</el-dropdown-item><el-dropdown-item @click="router.push('/manager/password')">修改密码</el-dropdown-item><el-dropdown-item divided @click="logout">退出登录</el-dropdown-item></el-dropdown-menu></template></el-dropdown></div></header>
       <main class="manager-content"><router-view @updateUser="updateUser"/></main>
     </section>
   </div>

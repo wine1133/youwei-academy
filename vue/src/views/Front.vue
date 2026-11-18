@@ -32,7 +32,7 @@
         </template>
         <el-dropdown v-else trigger="click">
           <button class="user-pill">
-            <img :src="data.user.avatar || '/images/avatars/student.svg'" alt="">
+            <img :src="data.user.avatar || '/images/avatars/student.jpg'" alt="">
             <span>{{ data.user.name }}</span>
             <el-icon><ArrowDown /></el-icon>
           </button>

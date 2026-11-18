@@ -3,7 +3,7 @@
     <section class="profile-hero">
       <div class="page-shell profile-inner">
         <div class="avatar-wrap">
-          <img :src="user.avatar || '/images/avatars/student.svg'" alt="">
+          <img :src="user.avatar || '/images/avatars/student.jpg'" alt="">
           <el-upload :action="uploadUrl" :show-file-list="false" :on-success="avatarSuccess"><button class="avatar-edit"><el-icon><Camera /></el-icon></button></el-upload>
         </div>
         <div class="profile-copy">

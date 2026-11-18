@@ -7,7 +7,7 @@
         <div class="visual-main"><div class="eyebrow light">READ · THINK · CREATE</div><h1>让阅读成为<br><em>理解世界</em>的方式</h1><p>一座为学习者而生的数字书院。<br>在这里，书籍、思想和伙伴彼此连接。</p></div>
         <div class="visual-quote">“ 书籍并不是把外在的东西给予我们，而是促使我们内在的东西苏醒。 ”</div>
       </div>
-      <div class="visual-book"><img src="/images/covers/book-01.svg" alt=""></div>
+      <div class="visual-book"><img src="/images/real/books/book-01.jpg" alt=""></div>
     </section>
     <section class="auth-panel">
       <div class="auth-box">

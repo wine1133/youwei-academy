@@ -7,7 +7,7 @@
         <div class="article-tag">{{ article.category }}</div>
         <h1>{{ article.title }}</h1>
         <p>{{ article.summary }}</p>
-        <div class="author"><img :src="article.authorAvatar || '/images/avatars/teacher.svg'" alt=""><div><b>{{ article.authorName }}</b><span>{{ formatDate(article.createTime) }} · {{ article.views }} 阅读</span></div></div>
+        <div class="author"><img :src="article.authorAvatar || '/images/avatars/teacher.jpg'" alt=""><div><b>{{ article.authorName }}</b><span>{{ formatDate(article.createTime) }} · {{ article.views }} 阅读</span></div></div>
       </div>
     </section>
     <div class="page-shell article-layout">
@@ -22,7 +22,7 @@
       <aside class="article-side">
         <div class="side-card">
           <h3>关于作者</h3>
-          <div class="side-author"><img :src="article.authorAvatar || '/images/avatars/teacher.svg'" alt=""><div><b>{{ article.authorName }}</b><span>有为书院创作者</span></div></div>
+          <div class="side-author"><img :src="article.authorAvatar || '/images/avatars/teacher.jpg'" alt=""><div><b>{{ article.authorName }}</b><span>有为书院创作者</span></div></div>
           <p>持续阅读，持续思考，也持续把思考写下来。</p>
         </div>
         <div class="side-card">
@@ -35,13 +35,13 @@
     <section class="page-shell comments-section">
       <div class="comment-title"><h2>思想回声</h2><span>{{ comments.length }} 条评论</span></div>
       <div class="comment-compose card">
-        <img :src="user.avatar || '/images/avatars/student.svg'" alt="">
+        <img :src="user.avatar || '/images/avatars/student.jpg'" alt="">
         <textarea v-model="commentText" placeholder="写下你的理解、疑问或共鸣……"></textarea>
         <el-button type="primary" round @click="submitComment">发布评论</el-button>
       </div>
       <div class="comments-list">
         <div v-for="c in comments" :key="c.id" class="comment-item">
-          <img :src="c.avatar || '/images/avatars/student.svg'" alt="">
+          <img :src="c.avatar || '/images/avatars/student.jpg'" alt="">
           <div><div class="comment-meta"><b>{{ c.userName }}</b><span>{{ formatDate(c.createTime) }}</span></div><p>{{ c.content }}</p></div>
         </div>
         <div v-if="!comments.length" class="empty-state">还没有评论，来留下第一句思考吧。</div>

@@ -42,7 +42,7 @@ const data=reactive({rows:[],total:0}); const rows=computed(()=>data.rows),total
 const formVisible=ref(false),form=reactive({}),chapterVisible=ref(false),currentBook=reactive({}),chapters=reactive([]),chapterForm=reactive({})
 const load=()=>request.get('/book/selectPage',{params:query}).then(res=>{if(res.code==='200'){data.rows=res.data.list||[];data.total=res.data.total||0}})
 const search=()=>{query.pageNum=1;load()}
-const resetForm=()=>Object.assign(form,{id:null,name:'',author:'',cover:'/images/covers/book-01.svg',category:'文学',publisher:'',isbn:'',description:'',total:10,stock:10,score:5,status:'AVAILABLE'})
+const resetForm=()=>Object.assign(form,{id:null,name:'',author:'',cover:'/images/real/books/book-01.jpg',category:'文学',publisher:'',isbn:'',description:'',total:10,stock:10,score:5,status:'AVAILABLE'})
 const handleAdd=()=>{resetForm();formVisible.value=true}
 const handleEdit=(row)=>{resetForm();Object.assign(form,row);formVisible.value=true}
 const save=()=>{const method=form.id?'put':'post';request[method](form.id?'/book/update':'/book/add',form).then(res=>{if(res.code==='200'){ElMessage.success('保存成功');formVisible.value=false;load()}else ElMessage.error(res.msg)})}
