@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.BorrowMapper">
+  <select id="selectAll" resultType="com.example.entity.Borrow">
+    select b.*,k.name bookName,k.cover bookCover,u.name userName,u.avatar userAvatar
+    from borrow b left join book k on b.book_id=k.id left join `user` u on b.user_id=u.id
+    <where>
+      <if test="userId != null">and b.user_id=#{userId}</if>
+      <if test="status != null and status != ''">and b.status=#{status}</if>
+      <if test="bookName != null and bookName != ''">and k.name like concat('%',#{bookName},'%')</if>
+    </where>
+    order by b.borrow_time desc
+  </select>
+  <insert id="insert" parameterType="com.example.entity.Borrow" useGeneratedKeys="true" keyProperty="id">insert into borrow(book_id,user_id,due_time,status) values(#{bookId},#{userId},#{dueTime},'BORROWED')</insert>
+  <update id="returnBook" parameterType="com.example.entity.Borrow">update borrow set return_time=now(),status='RETURNED' where id=#{id}</update>
+</mapper>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.SpaceMapper">
+  <insert id="insert" parameterType="com.example.entity.Space" useGeneratedKeys="true" keyProperty="id">insert into space(name,address,longitude,latitude,description,open_time,cover,status) values(#{name},#{address},#{longitude},#{latitude},#{description},#{openTime},#{cover},#{status})</insert>
+  <update id="updateById" parameterType="com.example.entity.Space">update space set name=#{name},address=#{address},longitude=#{longitude},latitude=#{latitude},description=#{description},open_time=#{openTime},cover=#{cover},status=#{status} where id=#{id}</update>
+</mapper>

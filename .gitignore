@@ -1,0 +1,20 @@
+# IDE
+.idea/
+*.iml
+
+# Frontend
+vue/node_modules/
+vue/dist/
+npm-debug.log*
+
+# Java build output
+springboot/target/
+*.class
+*.log
+
+# Local tunnel binary (download separately if needed)
+tools/cloudflared.exe
+
+# OS
+Thumbs.db
+.DS_Store

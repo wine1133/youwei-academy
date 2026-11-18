@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ArticleMapper">
+  <select id="selectAll" resultType="com.example.entity.Article">
+    select a.*,coalesce(u.name,t.name) authorName,coalesce(u.avatar,t.avatar) authorAvatar from article a left join `user` u on a.user_id=u.id left join `teacher` t on a.user_id=t.id and u.id is null
+    <where>
+      <if test="title != null and title != ''">and a.title like concat('%',#{title},'%')</if>
+      <if test="category != null and category != ''">and a.category=#{category}</if>
+      <if test="userId != null">and a.user_id=#{userId}</if>
+      <if test="status != null and status != ''">and a.status=#{status}</if>
+    </where>
+    order by a.create_time desc
+  </select>
+  <select id="selectById" resultType="com.example.entity.Article">
+    select a.*,coalesce(u.name,t.name) authorName,coalesce(u.avatar,t.avatar) authorAvatar from article a left join `user` u on a.user_id=u.id left join `teacher` t on a.user_id=t.id and u.id is null where a.id=#{id}
+  </select>
+  <insert id="insert" parameterType="com.example.entity.Article" useGeneratedKeys="true" keyProperty="id">
+    insert into article(title,summary,cover,content,category,tags,user_id,views,likes,collects,status) values(#{title},#{summary},#{cover},#{content},#{category},#{tags},#{userId},0,0,0,'PUBLISHED')
+  </insert>
+  <update id="updateById" parameterType="com.example.entity.Article">
+    update article set title=#{title},summary=#{summary},cover=#{cover},content=#{content},category=#{category},tags=#{tags},status=#{status} where id=#{id}
+  </update>
+</mapper>
+
